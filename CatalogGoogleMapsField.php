@@ -29,7 +29,7 @@ class CatalogGoogleMapsField extends Backend
         $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/cataloggooglemapsfield/html/googlemapsfield.js';
         $GLOBALS['TL_JAVASCRIPT'][] = 'https://maps.googleapis.com/maps/api/js?sensor=false';
 
-        $objField = $this->Database->prepare("SELECT name, colName, googlemaps_lonfield, googlemaps_latfield, googlemaps_zoomfield FROM tl_catalog_fields WHERE colName=?")
+        $objField = $this->Database->prepare("SELECT name, description, colName, googlemaps_lonfield, googlemaps_latfield, googlemaps_zoomfield FROM tl_catalog_fields WHERE colName=?")
             ->limit(1)
             ->execute($dc->field);
 
@@ -38,7 +38,7 @@ class CatalogGoogleMapsField extends Backend
             return null;
         }
 
-        return '<div><h3>' . $objField->name . '</h3><div id="ctrl_' . $objField->colName . '" style="width:100%;height:30em;margin-top:1em;"></div><p class="tl_help tl_tip">' . $objField->description . '</p><script type="text/javascript">$(window).addEvent("domready",function(){ new GoogleMapsField("ctrl_' . $objField->colName . '","ctrl_' . $objField->googlemaps_latfield. '","ctrl_' . $objField->googlemaps_lonfield. '","ctrl_' . $objField->googlemaps_zoomfield. '"); });</script></div>';
+        return '<div><h3>' . $objField->name . '</h3><div id="ctrl_' . $objField->colName . '" style="width:100%;height:30em;margin:1em 0;"></div><p class="tl_help tl_tip">' . $objField->description . '</p><script type="text/javascript">$(window).addEvent("domready",function(){ new GoogleMapsField("ctrl_' . $objField->colName . '","ctrl_' . $objField->googlemaps_latfield. '","ctrl_' . $objField->googlemaps_lonfield. '","ctrl_' . $objField->googlemaps_zoomfield. '"); });</script></div>';
     }
 }
 ?>
