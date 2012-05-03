@@ -52,7 +52,7 @@ $GLOBALS['TL_DCA']['tl_catalog_fields']['fields']['googlemaps_zoomfield'] = arra
 			'label'                   => &$GLOBALS['TL_LANG']['tl_catalog_fields']['googlemaps_zoomfield'],
 			'inputType'               => 'select',
 			'options_callback'        => array('tl_catalog_googlemaps', 'getFields'),
-			'eval'                    => array('includeBlankOption'=>true, 'tl_class'=>'w50', 'mandatory'=>true),
+			'eval'                    => array('includeBlankOption'=>true, 'tl_class'=>'w50', 'mandatory'=>false),
 		);
 
 $GLOBALS['TL_DCA']['tl_catalog_fields']['fields']['type']['options'][] = 'googlemapsfield';
