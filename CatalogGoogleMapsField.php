@@ -38,7 +38,16 @@ class CatalogGoogleMapsField extends Backend
             return null;
         }
 
-        return '<div><h3>' . $objField->name . '</h3><div id="ctrl_' . $objField->colName . '" style="width:100%;height:30em;margin:1em 0;"></div><p class="tl_help tl_tip">' . $objField->description . '</p><script type="text/javascript">$(window).addEvent("domready",function(){ new GoogleMapsField("ctrl_' . $objField->colName . '","ctrl_' . $objField->googlemaps_latfield. '","ctrl_' . $objField->googlemaps_lonfield. '","ctrl_' . $objField->googlemaps_zoomfield. '"); });</script></div>';
+        $out = '<div><h3>' . $objField->name . '</h3>';
+        $out.='<label class="tl_label" for="ctrl_'.$objField->colName.'_address">'.$GLOBALS['TL_LANG']['cataloggooglemapsfield']['geocode'].'</label>';
+        $out.='<input type="text" class="tl_text" id="ctrl_'.$objField->colName.'_address" onfocus="Backend.getScrollOffset()" />';
+        $out.='<a href="javascript:void(0);" class="tl_submit" id="ctrl_'.$objField->colName.'_address_submit">'.$GLOBALS['TL_LANG']['cataloggooglemapsfield']['geocode_search'].'</a>';
+        $out.='<div id="ctrl_' . $objField->colName . '" style="width:100%;height:30em;margin:1em 0;"></div>';
+        $out.='<p class="tl_help tl_tip">' . $objField->description . '</p>';
+        $out.='<script type="text/javascript">$(window).addEvent("domready",function(){ new GoogleMapsField("ctrl_' . $objField->colName . '","ctrl_' . $objField->googlemaps_latfield. '","ctrl_' . $objField->googlemaps_lonfield. '","ctrl_' . $objField->googlemaps_zoomfield. '"); });</script>';
+        $out.='</div>';
+
+        return $out;
     }
 }
 ?>

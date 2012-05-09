@@ -30,22 +30,8 @@ function GoogleMapsField(container,latfield,lonfield,zoomfield) {
        _this.zoomfield.set('value',_this.map.getZoom());
     });
 
-    this.addressfield = new Element('input',{
-        'type':'text',
-        'id':container+'_address',
-        'class':'tl_text',
-        'onfocus':'Backend.getScrollOffset()'
-    });
-
-    this.addresssubmit = new Element('a',{
-        'id':container+'_address_submit',
-        'class':'tl_submit',
-        'text':'Geocode',
-        'onclick':'javascript:void(0);'
-    });
-
-    this.addressfield.inject(this.container,'before');
-    this.addresssubmit.inject(this.addressfield,'after');
+    this.addressfield = $(container+'_address');
+    this.addresssubmit = $(container+'_address_submit');
 
     this.geocoder = new google.maps.Geocoder();
 

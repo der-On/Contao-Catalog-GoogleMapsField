@@ -16,7 +16,6 @@
  
 $GLOBALS['TL_LANG']['tl_catalog_fields']['typeOptions']['googlemapsfield'] = "Kartenfeld";
 
-
 $GLOBALS['TL_LANG']['tl_catalog_fields']['googlemaps_latfield']['0'] = "Breitengrad";
 $GLOBALS['TL_LANG']['tl_catalog_fields']['googlemaps_latfield']['1'] = "Geben Sie hier das Feld f&uuml;r den Breitengrad an";
 
