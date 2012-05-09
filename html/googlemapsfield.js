@@ -23,10 +23,7 @@ function GoogleMapsField(container,latfield,lonfield,zoomfield) {
     });
 
     google.maps.event.addListener(this.marker,'dragend',function(){
-        var pos = _this.marker.getPosition();
-
-        _this.latfield.set('value',pos.lat());
-        _this.lonfield.set('value',pos.lng());
+        _this.updateLatLonFields();
     });
 
     google.maps.event.addListener(this.map,'zoom_changed',function(){
@@ -62,8 +59,16 @@ function GoogleMapsField(container,latfield,lonfield,zoomfield) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     _this.map.setCenter(results[0].geometry.location);
                     _this.marker.setPosition(results[0].geometry.location);
+                    _this.updateLatLonFields();
                 }
             });
         }
     });
+
+    this.updateLatLonFields = function()
+    {
+        var pos = _this.marker.getPosition();
+        _this.latfield.set('value',pos.lat());
+        _this.lonfield.set('value',pos.lng());
+    }
 };
